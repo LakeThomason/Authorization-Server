@@ -1,0 +1,37 @@
+{
+  "name": "auth_service_ts",
+  "version": "1.0.2",
+  "license": "UNLICENSED",
+  "description": "Authorization server (Allen comm redirects, clientID/clientSecret)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Commission-on-POST/auth_server_ts"
+  },
+  "main": "dist/preindex.js",
+  "scripts": {
+    "start": "(npm run build) && (node .)",
+    "start-dev-env": "(SET NODE_ENV=development) && (npm run build) && (node .)",
+    "start-test-env": "(SET NODE_ENV=test) && (npm run build) && (node .)",
+    "start-prod-env": "(SET NODE_ENV=production) && (npm run build) && (node .)",
+    "prebuild": "(npm install) && (tslint -c tslint.json -p tsconfig.json --fix) && ((rd dist /s /q) || (exit 0))",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv-flow": "^3.0.0",
+    "env_helper_ts": "^1.1.16",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "mongo_dal": "^3.0.0",
+    "post_ltr_logger": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/dotenv-flow": "^3.0.0",
+    "@types/express": "^4.17.0",
+    "@types/http-errors": "^1.6.1",
+    "@types/node": "^12.6.8",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
+}
